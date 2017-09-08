@@ -65,17 +65,13 @@ Six sorties PWM sont connectées au FMU et intègrent une fonctionnalité de ré
 
 Toutes les sorties PWM sont anti-ESD et sont conçues pour résister à des mauvaises connections accidentelles des servos sans être endommagées. ~~Les contrôleurs des servo sont faits pour contrôler la charge d'entrée d'un servo 50pF sur deux mètres de câble pour servo 26AWG.~~ Les sorties PWM peuvent également être utilisées comme GPIOs. Il est à noter que ces sorties ne sont pas des sorties haute puissance - les contrôleurs PWM sont faits pour contrôler des servos et des signaux analogiques du même type, mais pas de relais ou de LEDs.
 
+
+
 **Ports périphériques:**
 
-FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO ~~original et offre la possibilité de fabriquer des câbles spécifiques pour chaque utilisation.~~
+FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO ~~original et offre la possibilité de fabriquer des câbles spécifiques pour chaque utilisation.~~ 
 
 Cinq ports série sont à disposition. TELEM 1, 2 et 3 intègrent le Full flow Control. TELEM 4 peut être passé en mode inversé par le biais du hardware et n'intègre pas de flow control. Les ports série sont en signaux logiques CMOS 3.3V, tolèrent le 5V, sont bufferisés et anti-ESD.
-
-
-
-
-
-
 
 **Peripheral Ports:**
 
@@ -100,4 +96,6 @@ Data-ready signals from all sensors \(except the MS5611, which does not have one
 The two external SPI buses and six associated chip select lines allow to add additional sensors and SPI-interfaced payload as needed.
 
 **IMU is isolated from vibrations**.
+
+
 
