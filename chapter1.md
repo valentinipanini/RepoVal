@@ -1,6 +1,6 @@
 De nombreux acteurs jouent un rôle dans la plateforme **FMUv4-PRO**; utilisateurs finaux, développeurs, chercheurs et fabricants. Les objectifs de cette itération de la plateforme sont:
 
-* Un contrôleur de vol sur une carte unique et ergonomique pour les applications  en espace réduit.
+* Un contrôleur de vol sur une carte unique et ergonomique pour les applications en espace réduit.
 * Un contrôleur de vol modulable en plusieurs cartes pour les applications professionnelles.
 * Entrées et sorties suffisantes pour la majorité des applications, sans extension.
 * Une utilisation plus intuitive.
@@ -17,7 +17,7 @@ De nombreux acteurs jouent un rôle dans la plateforme **FMUv4-PRO**; utilisateu
 * Système de remplacement ponctuel de la batterie pour le FMU et la SRAM / RTC de l'IO implémenté sur la carte.
 * Possibilité d'utilisation avec deux modules de puissance.
 
-**Améliorations technologiques**
+**Evolutions technologiques**
 
 * Upgrade du microcontrôleur vers un STM32F469; augmentation mémoire flash de 1Mio à 2Mio, de la RAM de 256Kio à 384Kio, plus d'entrées sorties périphériques.
 * Gyroscopes / Accéléromètres / Magnétomètres **ICM-20602**, **MPU9K **intégrés.
@@ -65,37 +65,31 @@ Six sorties PWM sont connectées au FMU et intègrent une fonctionnalité de ré
 
 Toutes les sorties PWM sont anti-ESD et sont conçues pour résister à des mauvaises connections accidentelles des servos sans être endommagées. ~~Les contrôleurs des servo sont faits pour contrôler la charge d'entrée d'un servo 50pF sur deux mètres de câble pour servo 26AWG.~~ Les sorties PWM peuvent également être utilisées comme GPIOs. Il est à noter que ces sorties ne sont pas des sorties haute puissance - les contrôleurs PWM sont faits pour contrôler des servos et des signaux analogiques du même type, mais pas de relais ou de LEDs.
 
-
-
 **Ports périphériques:**
 
-FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO ~~original et offre la possibilité de fabriquer des câbles spécifiques pour chaque utilisation.~~ 
+FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO ~~original et offre la possibilité de fabriquer des câbles spécifiques pour chaque utilisation.~~
 
 Cinq ports série sont à disposition. TELEM 1, 2 et 3 intègrent le Full flow Control. TELEM 4 peut être passé en mode inversé par le biais du hardware et n'intègre pas de flow control. Les ports série sont en signaux logiques CMOS 3.3V, tolèrent le 5V, sont bufferisés et anti-ESD.
 
-**Peripheral Ports:**
+Les ports SPI ne sont pas bufferisés; il est conseillé de n'utiliser que des câbles courts sur ceux-ci. Les signaux logiques sont en 3.3V CMOS mais le 5V est toléré.
 
-FMUv4-PRO recommends separate connectors for each of the peripheral ports \(with a few exceptions\). This avoids the issues many users reported connecting to the 15-pin multi-IO port on the original PX4FMU-PRO and allows single-purpose peripheral cables to be manufactured.+
+Deux modules de puissance peuvent être lus et utilisés avec le microcontrôleur principal.
 
-Five serial ports are provided. TELEM 1, 2 and 3 feature full flow control. TELEM4 can be switched into inverted mode by hardware and has no flow control. Serial ports are 3.3V CMOS logic level, 5V tolerant, buffered and ESDprotected.
+L'entrée RSSI accepte des signaux RSSI PWM ou RSSI Analogique. Les signaux CPPM, S.Bus et DSM/ Spektrum utilisent un connecteur commun aux trois lignes et sont détectés automatiquement par le software.
 
-The SPI ports are not buffered; they should only be used with short cable runs. Signals are 3.3V CMOS logic level, but 5V tolerant.
+Les ports CAN sont des bus CAN standards, ~~termination for one end of the bus is fixed onboard.~~
 
-Two power modules \(voltage and current for each module\) can be sampled by the main processor.
 
-The RSSI input supports either PWM or analog RSSI. CPPM, S.Bus and DSM/ Spektrum share now a single port and are auto-detected in software.
 
-The CAN ports are standard CAN Bus; termination for one end of the bus is fixed onboard.
+**Capteurs:**
 
-**Sensors:**
+Le nouveau capteur **ICM-20602 **est le successeur plus évolué des capteurs de génération MPU-6xxx d'Invensense. Le programme supporte aussi l'utilisation d'un MPU9250, pour offrir une solution en 9D des plus low-cost.
 
-The new**ICM-20602**has been positioned by Invensense as higher-end successor of the MPU-6000 series. The software also supports the MPU-9250, which allows a very cost-effective 9D solution.
+Les signaux "data-ready' de tous les capteurs \(excepté le MS5611 qui ne le supporte pas\) sont connectés à des interruptions et timers indépendants du FMU. Cette technique permet un horodatage plus précis des infos capteurs.
 
-Data-ready signals from all sensors \(except the MS5611, which does not have one\) are routed to separate interrupt and timer capture pins on FMU. This will permit precise time-stamping of sensor data.
+Les deux bus SPI externes et six lignes de sélection permettent d'ajouter des capteurs et appareils fonctionnant en SPI supplémentaires au besoin.
 
-The two external SPI buses and six associated chip select lines allow to add additional sensors and SPI-interfaced payload as needed.
-
-**IMU is isolated from vibrations**.
+**L'IMU est isolé des vibrations.**   
 
 
 
