@@ -14,7 +14,7 @@ De nombreux acteurs jouent un rôle dans la plateforme **FMUv4-PRO**; utilisateu
 * Design tout-en-un avec un FMU intégré, un IO optionnel et de nombreuses entrées et sorties.
 * Une fabrication améliorée, élaborée pour une intégration et une création de boîtier simplifiée.
 * Des alimentations séparées pour le FMU et l'IO \(voir Architecture Alimentation\)
-* Système de remplacement ponctuel de la batterie pour le FMU et la SRAM / RTC de l'IO implémenté sur la carte.
+* Système de secours de la batterie pour le FMU et la SRAM / RTC de l'IO implémenté sur la carte.
 * Possibilité d'utilisation avec deux modules de puissance.
 
 **Evolutions technologiques**
@@ -67,7 +67,7 @@ Toutes les sorties PWM sont anti-ESD et sont conçues pour résister à des mauv
 
 **Ports périphériques:**
 
-FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO ~~original et offre la possibilité de fabriquer des câbles spécifiques pour chaque utilisation.~~
+FMUv4-PRO recommande d'utiliser des connecteurs différents pour chacun des ports périphériques \(hormis quelques exceptions\). Cela permet d'éviter des soucis rapportés par de nombreux utilisateurs lorsqu'ils se connectaient au port multi-IO 15-pin sur le PX4FMU-PRO d'origine et permet de s'adapter à des câbles homemades.
 
 Cinq ports série sont à disposition. TELEM 1, 2 et 3 intègrent le Full flow Control. TELEM 4 peut être passé en mode inversé par le biais du hardware et n'intègre pas de flow control. Les ports série sont en signaux logiques CMOS 3.3V, tolèrent le 5V, sont bufferisés et anti-ESD.
 
@@ -77,9 +77,7 @@ Deux modules de puissance peuvent être lus et utilisés avec le microcontrôleu
 
 L'entrée RSSI accepte des signaux RSSI PWM ou RSSI Analogique. Les signaux CPPM, S.Bus et DSM/ Spektrum utilisent un connecteur commun aux trois lignes et sont détectés automatiquement par le software.
 
-Les ports CAN sont des bus CAN standards, ~~termination for one end of the bus is fixed onboard.~~
-
-
+Les ports CAN sont des bus CAN standards dont la terminaison est incluse à l'intérieur du système.
 
 **Capteurs:**
 
@@ -89,7 +87,5 @@ Les signaux "data-ready' de tous les capteurs \(excepté le MS5611 qui ne le sup
 
 Les deux bus SPI externes et six lignes de sélection permettent d'ajouter des capteurs et appareils fonctionnant en SPI supplémentaires au besoin.
 
-**L'IMU est isolé des vibrations.**   
-
-
+**L'IMU est isolé des vibrations.**
 
