@@ -1,3 +1,5 @@
+# Introduction {#introduction}
+
 De nombreux acteurs jouent un rôle dans la plateforme **FMUv4-PRO**; utilisateurs finaux, développeurs, chercheurs et fabricants. Les objectifs de cette itération de la plateforme sont:
 
 * Un contrôleur de vol sur une carte unique et ergonomique pour les applications en espace réduit.
@@ -63,7 +65,7 @@ Huit sorties PWM sont connectées à l'IO qui peut les contrôler directement vi
 
 Six sorties PWM sont connectées au FMU et intègrent une fonctionnalité de réduction du temps de rafraîchissement. Ces sorties ne peuvent pas être contrôlées par l'IO en mode failsafe. Plusieurs vitesses de rafraîchissement sont possibles sur ces sorties divisées en deux groupes : 1 groupe de quatre et 1 groupe de deux. Des signaux PWM jusqu'à 400Hz sont supportés.
 
-Toutes les sorties PWM sont anti-ESD et sont conçues pour résister à des mauvaises connections accidentelles des servos sans être endommagées. ~~Les contrôleurs des servo sont faits pour contrôler la charge d'entrée d'un servo 50pF sur deux mètres de câble pour servo 26AWG.~~ Les sorties PWM peuvent également être utilisées comme GPIOs. Il est à noter que ces sorties ne sont pas des sorties haute puissance - les contrôleurs PWM sont faits pour contrôler des servos et des signaux analogiques du même type, mais pas de relais ou de LEDs.
+Toutes les sorties PWM sont anti-ESD et sont conçues pour résister à des mauvaises connections accidentelles des servos sans être endommagées. Les lignes servo sont faites pour transporter la charge d'un câble 26AWG de 2 mètres pour un servomoteur de 50pF.  Les sorties PWM peuvent également être utilisées comme GPIOs. Il est à noter que ces sorties ne sont pas des sorties haute puissance - les contrôleurs PWM sont faits pour contrôler des servos et des signaux analogiques du même type, mais pas de relais ou de LEDs.
 
 **Ports périphériques:**
 
