@@ -42,7 +42,7 @@ De nombreux acteurs jouent un rôle dans la plateforme **FMUv4-PRO**; utilisateu
 * 2 ports SPI externes \(non bufferisés, avec des câbles courts\).
 * 2 interfaces bus CAN.
 * Entrées analogiques pour la tension/ampérage de deux batteries.
-* Connectique pour buzzer piezopour utilisation au sol.
+* Connectique pour buzzer piezo pour utilisation au sol.
 * Connectique favorisant l'upgrade des capteurs.
 * LED RGB haute visibilité.
 * Safety Switch à LED.
